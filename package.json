@@ -1,0 +1,19 @@
+{
+  "name": "naive-cms",
+  "version": "0.0.1",
+  "description": "A naive cms implementation.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ycmjason/naive-cms.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ycmjason/naive-cms/issues"
+  },
+  "homepage": "https://github.com/ycmjason/naive-cms#readme"
+}
