@@ -18,7 +18,7 @@ export default {
 // Core variables and mixins
 @import "~bootstrap/scss/variables";
 @import "~bootstrap/scss/mixins";
-@import "./custom";
+@import "./colors";
 // Reset and dependencies
 @import "~bootstrap/scss/normalize";
 @import "~bootstrap/scss/print";

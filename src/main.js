@@ -8,18 +8,38 @@ import App from '@/App.vue';
 import store from '@/store';
 import router from '@/router';
 
-// register all layout components
-const LAYOUT_COMPONENT_PREFIX = 'layout';
-const layout_component_paths = require.context('@/layout_components', true, /.*\.vue/).keys()
-layout_component_paths.map(p => p.match(/\.\/(.*?)\.vue/)[1]).forEach(name => {
-  Vue.component(LAYOUT_COMPONENT_PREFIX + name, require('@/layout_components/' + name + '.vue'));
+[
+  {
+    prefix: 'layout',
+    context: require.context('@/components_layout', true, /.*\.vue/),
+  },
+  {
+    prefix: 'theme',
+    context: require.context('@/components_theme', true, /.*\.vue/),
+  },
+  {
+    prefix: 'nc',
+    context: require.context('@/components', true, /.*\.vue/),
+  },
+].forEach(({prefix, context}) => {
+  context.keys()
+    .map(p => p.match(/\.\/(.*?)\.vue/)[1])
+    .forEach(name => {
+      Vue.component(prefix + name, context('./' + name + '.vue'));
+    });
 });
 
-// register all the components
-const COMPONENT_PREFIX = 'nc';
-const component_paths = require.context('@/components', true, /.*\.vue/).keys()
-component_paths.map(p => p.match(/\.\/(.*?)\.vue/)[1]).forEach(name => {
-  Vue.component(COMPONENT_PREFIX + name, require('@/components/' + name + '.vue'));
+const THEME_PREFIX = 'theme';
+Vue.component(THEME_PREFIX + 'LayoutDefault', {
+  template: `
+    <div>
+      <${THEME_PREFIX}-header></${THEME_PREFIX}-header>
+      <layout-container>
+        <slot></slot>
+      </layout-container>
+      <${THEME_PREFIX}-footer></${THEME_PREFIX}-footer>
+    </div>
+  `,
 });
 
 // initiate the app

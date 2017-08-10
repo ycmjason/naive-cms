@@ -1,7 +1,7 @@
 <template>
-  <theme-layout-default>
-    hi
-  </theme-layout-default>
+  <div class="container">
+    <slot></slot>
+  </div>
 </template>
 
 <script>

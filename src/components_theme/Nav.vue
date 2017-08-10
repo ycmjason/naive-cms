@@ -1,7 +1,7 @@
 <template>
   <ul class="nav">
     <li class="nav-item" v-for="link in links" :key="link.item">
-      <a class="nav-link active" :href="link.link"> {{ link.item }}</a>
+      <router-link class="nav-link" :to="link.link"> {{ link.item }}</router-link>
     </li>
   </ul>
 </template>
@@ -19,11 +19,22 @@ export default {
       links: objBreakdown(this.items, 'item', 'link'),
     };
   },
-  created(){
-    console.log(this.links);
-  }
 }
 </script>
 
-<style scoped>
+<style lang="scss"  scoped>
+@import "../colors";
+
+.nav-link:link, .nav-link:visited, .nav-link:hover {
+  color: $gray-light;
+}
+
+ul.nav li:first-child .nav-link{
+  font-weight: bold;
+  color: $gray-dark !important;
+}
+
+.router-link-active{
+  color: $gray-dark !important;
+}
 </style>

@@ -1,6 +1,8 @@
 <template>
   <header>
-    <nc-nav :items="items"></nc-nav>
+    <layout-container>
+      <theme-nav :items="nav"></theme-nav>
+    </layout-container>
   </header>
 </template>
 
@@ -8,8 +10,8 @@
 import { mapState } from 'vuex';
 export default {
   computed: mapState({
-    items: (state) => state.nav,
-  })
+    nav: (state) => state.nav,
+  }),
 }
 </script>
 

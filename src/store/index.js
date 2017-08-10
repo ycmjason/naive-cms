@@ -5,8 +5,9 @@ Vue.use(Vuex);
 
 const state = {
   nav: {
-    'Naive': '#!',
-    'Home': '#home',
+    'Naive': {
+      path: ''
+    },
   },
   projects: []
 };
