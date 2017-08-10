@@ -4,7 +4,7 @@ import VueRouter from 'vue-router';
 Vue.use(VueRouter);
 
 const routes = [
-  { path: '/', component: require('@/pages/Home.vue') },
+  { path: '/:page?', component: require('@/pages/DynamicPage.vue') , props: true},
 ]
 
 export default new VueRouter({

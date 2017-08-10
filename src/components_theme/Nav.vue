@@ -1,23 +1,18 @@
 <template>
   <ul class="nav">
-    <li class="nav-item" v-for="link in links" :key="link.item">
-      <router-link class="nav-link" :to="link.link"> {{ link.item }}</router-link>
+    <li class="nav-item" v-for="link in items" :key="link.text">
+      <router-link class="nav-link" :to="link.href"> {{ link.text }}</router-link>
     </li>
   </ul>
 </template>
 
 <script>
-const objBreakdown = (obj, keyProp='key', valProp='value') => {
-  return Object.keys(obj).map(k => ({[keyProp]: k, [valProp]: obj[k]}));
-};
 export default {
   props: {
-    items: Object,
-  },
-  data(){
-    return {
-      links: objBreakdown(this.items, 'item', 'link'),
-    };
+    items: {
+      type: Array,
+      required: true,
+    }
   },
 }
 </script>
@@ -34,7 +29,7 @@ ul.nav li:first-child .nav-link{
   color: $gray-dark !important;
 }
 
-.router-link-active{
+.router-link-exact-active{
   color: $gray-dark !important;
 }
 </style>

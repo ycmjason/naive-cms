@@ -22,24 +22,10 @@ import router from '@/router';
     context: require.context('@/components', true, /.*\.vue/),
   },
 ].forEach(({prefix, context}) => {
-  context.keys()
-    .map(p => p.match(/\.\/(.*?)\.vue/)[1])
-    .forEach(name => {
-      Vue.component(prefix + name, context('./' + name + '.vue'));
-    });
-});
-
-const THEME_PREFIX = 'theme';
-Vue.component(THEME_PREFIX + 'LayoutDefault', {
-  template: `
-    <div>
-      <${THEME_PREFIX}-header></${THEME_PREFIX}-header>
-      <layout-container>
-        <slot></slot>
-      </layout-container>
-      <${THEME_PREFIX}-footer></${THEME_PREFIX}-footer>
-    </div>
-  `,
+  const getName = (p) => p.match(/\.\/(.*?)\.vue/)[1];
+  const reg = (name) => Vue.component(prefix + name, context('./' + name + '.vue'));
+  const component_paths = context.keys();
+  component_paths.map(getName).forEach(reg);
 });
 
 // initiate the app
@@ -49,3 +35,5 @@ new Vue({
   store,
   render: h => h(App)
 })
+
+store.dispatch('fetchPages');

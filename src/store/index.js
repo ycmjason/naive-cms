@@ -1,24 +1,22 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
 
+import pagesService from '@/services/pages.service';
+
 Vue.use(Vuex);
 
 const state = {
-  nav: {
-    'Naive': {
-      path: ''
-    },
-  },
-  projects: []
+  pages: [],
+  projects: [],
 };
 
 const mutations = {
-  INIT_PROJECTS: (state, projects) => state.projects = projects,
+  INIT_PAGES: (state, pages) => state.pages = pages,
 };
 
 const actions = {
-  async fetchProjects({ commit }){
-    commit('INIT_PROJECTS', await projectService.findAll());
+  async fetchPages({ commit }){
+    commit('INIT_PAGES', await pagesService.findAll());
   }
 };
 
