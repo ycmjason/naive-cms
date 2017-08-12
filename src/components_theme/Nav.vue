@@ -18,7 +18,7 @@ export default {
 </script>
 
 <style lang="scss"  scoped>
-@import "../colors";
+@import "~@/styles/colors";
 
 .nav-link:link, .nav-link:visited, .nav-link:hover {
   color: $gray-light;

@@ -15,7 +15,7 @@ const DUMMY = [
     },
   },
   {
-    id: 0,
+    id: 1,
     order: 2,
     name: '你好',
     component: {
@@ -27,7 +27,7 @@ const DUMMY = [
     },
   },
   {
-    id: 0,
+    id: 2,
     order: 0,
     name: 'home',
     component: {
@@ -35,6 +35,26 @@ const DUMMY = [
       data: {
         title: 'Hello',
         body: 'I am Jason. <b>hi</b>',
+      },
+    },
+  },
+  {
+    id: 3,
+    order: 3,
+    name: 'performances',
+    component: {
+      name: 'Youtube',
+      data: {
+        videos: [
+          {
+            title: '舞笛-沙巴崇正中學華樂團與楊偉傑',
+            youtubeId: '_-FrYyyk2mM',
+          },
+          {
+            title: '笛子獨奏：《賽馬會上》 胡結續曲',
+            youtubeId: 'yGRYUmmjYMs',
+          },
+        ],
       },
     },
   },

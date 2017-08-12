@@ -11,7 +11,7 @@ export default { }
 </script>
 
 <style scoped lang="scss">
-@import "../colors";
+@import "~@/styles/colors";
 
 footer{
   background: $gray-lighter;

@@ -11,7 +11,7 @@ const state = {
 };
 
 const mutations = {
-  INIT_PAGES: (state, pages) => state.pages = pages,
+  INIT_PAGES: (state, pages) => state.pages = pages.sort((a, b) => a.order - b.order),
 };
 
 const actions = {
